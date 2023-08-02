@@ -1,0 +1,23 @@
+{
+  "name": "fisi-map-server",
+  "version": "1.0.0",
+  "description": "Servidor de la aplicación web Fisi Map",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["FISI", "map"],
+  "author": "Error404",
+  "license": "LGPL-3.0-or-later",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
