@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.piso {
+    height: 100vh;
+}
+
+.nodo {
+    fill: #000000;
+}
+
+.auditorio, .newpabellon {
+    cursor: pointer;
+}
+.auditorio:hover, .newpabellon:hover {
+    cursor: pointer;
+    fill: #ff0000;
+}
