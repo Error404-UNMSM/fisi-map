@@ -121,12 +121,20 @@ const rutas = [
   newRuta("nodo3-14", "nodo3-4"),
   newRuta("nodo3-7", "nodo3-15"), //Escalera
   newRuta("nodo3-15", "nodo3-7"),
-  //Rutas de prueba entre pisos
+  //rutas para escaleras
+  //Escaleras de 1er a 2do piso
+  newRuta("nodo1-22", "nodo2-16"), //Escalera
   newRuta("nodo1-23", "nodo2-17"),
-  newRuta("nodo2-17", "nodo2-2"),
-  newRuta("nodo2-2", "nodo2-3"),
-  newRuta("nodo2-17", "nodo3-12"),
-  newRuta("nodo3-12", "nodo3-0"),
+  newRuta("nodo1-24", "nodo2-18"),
+  newRuta("nodo1-25", "nodo2-19"),
+  newRuta("nodo1-26", "nodo2-20"),
+  newRuta("nodo1-27", "nodo2-21"),
+  //Escaleras de 2do a 3er piso
+  newRuta("nodo2-16", "nodo3-12"),
+  newRuta("nodo2-17", "nodo3-13"),
+  newRuta("nodo2-19", "nodo3-14"),
+  newRuta("nodo2-20", "nodo3-15"),
+  newRuta("nodo2-21", "nodo3-16"),
 ];
 
 // creacion del grafo
