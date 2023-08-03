@@ -67,26 +67,6 @@ main{
     align-items: center;
     justify-content: center;
 }
-*/
-
-.top-page {
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #621518;
-    gap: 256px;
-}
-
-.logo-fisi {
-    margin-left: 32px;
-}
-
-h1 {
-    font-family: 'Bree Serif', sans-serif;
-    font-size: 64px;
-    color: white;
-}
 
 .piso {
     height: 100%;
