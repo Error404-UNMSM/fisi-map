@@ -126,7 +126,6 @@ const rutas = [
   newRuta("nodo2-17", "nodo2-2"),
   newRuta("nodo2-2", "nodo2-3"),
   newRuta("nodo2-17", "nodo3-12"),
-  newRuta("nodo3-12", "nodo3-17"),
   newRuta("nodo3-12", "nodo3-0"),
 ];
 
