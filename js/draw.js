@@ -5,8 +5,8 @@ function dibujaRuta(ruta) {
   const polyline = draw.polyline(ruta);
   polyline.fill("none");
   polyline.stroke({
-    color: "#f06",
-    width: 5,
+    color: "#621518",
+    width: 10,
     linecap: "round",
     linejoin: "round",
   });
