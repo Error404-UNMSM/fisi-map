@@ -121,6 +121,10 @@ const rutas = [
   newRuta("nodo3-14", "nodo3-4"),
   newRuta("nodo3-7", "nodo3-15"), //Escalera
   newRuta("nodo3-15", "nodo3-7"),
+  
+  newRuta("nodo1-23", "nodo2-17"),
+  newRuta("nodo2-17", "nodo2-2"),
+  newRuta("nodo2-2", "nodo2-3"),
 ];
 
 // creacion del grafo
@@ -138,13 +142,31 @@ g.setOrigen("nodo1-0");
 // camino mas corto desde el nodo de origen hasta el nodo finish
 //camino = g.getCaminoMasCorto("nodo1-14");
 
-let camino, coordsCamino;
+let camino,
+  coordsCamino1,
+  coordsCamino2,
+  coordsCamino3;
 
 function trazadoRuta(nodo){
+  coordsCamino1 = [];
+  coordsCamino2 = [];
+  coordsCamino3 = [];
   camino = g.getCaminoMasCorto(nodo);
-  coordsCamino = camino.map((nodo) => nodos[nodo].toArr());
-  console.log(coordsCamino);
-  dibujaRuta(coordsCamino);
+  camino.forEach((nodo) => {
+    if (nodo.startsWith("nodo1")) {
+      coordsCamino1.push(nodos[nodo].toArr());
+    }
+    else if (nodo.startsWith("nodo2")) {
+      coordsCamino2.push(nodos[nodo].toArr());
+    }
+    else {
+      coordsCamino3.push(nodos[nodo].toArr());
+    }
+  });
+  console.log(coordsCamino1);
+  console.log(coordsCamino2);
+  console.log(coordsCamino3);
+  dibujaRuta(coordsCamino1, coordsCamino2, coordsCamino3);
 }
 
 
