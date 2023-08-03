@@ -43,6 +43,84 @@ const rutas = [
   newRuta("nodo1-7", "nodo1-8"),
   newRuta("nodo1-8", "nodo1-9"),
   newRuta("nodo1-9", "nodo1-26"),
+  //Rutas para el piso 2
+  newRuta("nodo2-0", "nodo2-1"),
+  newRuta("nodo2-1", "nodo2-0"),
+  newRuta("nodo2-1", "nodo2-2"),
+  newRuta("nodo2-2", "nodo2-1"),
+  newRuta("nodo2-2", "nodo2-3"),
+  newRuta("nodo2-3", "nodo2-2"),
+  newRuta("nodo2-3", "nodo2-4"),
+  newRuta("nodo2-4", "nodo2-3"),
+  newRuta("nodo2-4", "nodo2-5"),
+  newRuta("nodo2-5", "nodo2-4"),
+  newRuta("nodo2-5", "nodo2-6"),
+  newRuta("nodo2-6", "nodo2-5"),
+  newRuta("nodo2-6", "nodo2-7"),
+  newRuta("nodo2-7", "nodo2-6"),
+  newRuta("nodo2-7", "nodo2-8"),
+  newRuta("nodo2-8", "nodo2-7"),
+  newRuta("nodo2-0", "nodo2-14"),
+  newRuta("nodo2-14", "nodo2-0"),
+  newRuta("nodo2-1", "nodo2-9"),
+  newRuta("nodo2-9", "nodo2-1"),
+  newRuta("nodo2-9", "nodo2-10"),
+  newRuta("nodo2-10", "nodo2-9"),
+  newRuta("nodo2-10", "nodo2-11"),
+  newRuta("nodo2-11", "nodo2-10"),
+  newRuta("nodo2-11", "nodo2-12"),
+  newRuta("nodo2-12", "nodo2-11"),
+  newRuta("nodo2-12", "nodo2-13"),
+  newRuta("nodo2-13", "nodo2-12"),
+  newRuta("nodo2-5", "nodo2-15"),
+  newRuta("nodo2-15", "nodo2-5"),
+  newRuta("nodo2-0", "nodo2-16"), //Escalera
+  newRuta("nodo2-16", "nodo2-0"),
+  newRuta("nodo2-12", "nodo2-21"), //Escalera
+  newRuta("nodo2-21", "nodo2-12"),
+  newRuta("nodo2-2", "nodo2-17"), //Escalera
+  newRuta("nodo2-17", "nodo2-2"),
+  newRuta("nodo2-4", "nodo2-18"), //Escalera
+  newRuta("nodo2-18", "nodo2-4"),
+  newRuta("nodo2-5", "nodo2-19"), //Escalera
+  newRuta("nodo2-19", "nodo2-5"),
+  newRuta("nodo2-8", "nodo2-20"), //Escalera
+  newRuta("nodo2-20", "nodo2-8"),
+  //Rutas para el piso 3
+  newRuta("nodo3-0", "nodo3-1"),
+  newRuta("nodo3-1", "nodo3-0"),
+  newRuta("nodo3-1", "nodo3-2"),
+  newRuta("nodo3-2", "nodo3-1"),
+  newRuta("nodo3-2", "nodo3-3"),
+  newRuta("nodo3-3", "nodo3-2"),
+  newRuta("nodo3-3", "nodo3-4"),
+  newRuta("nodo3-4", "nodo3-3"),
+  newRuta("nodo3-4", "nodo3-5"),
+  newRuta("nodo3-5", "nodo3-4"),
+  newRuta("nodo3-5", "nodo3-6"),
+  newRuta("nodo3-6", "nodo3-5"),
+  newRuta("nodo3-6", "nodo3-7"),
+  newRuta("nodo3-7", "nodo3-6"),
+  newRuta("nodo3-1", "nodo3-8"),
+  newRuta("nodo3-8", "nodo3-1"),
+  newRuta("nodo3-8", "nodo3-9"),
+  newRuta("nodo3-9", "nodo3-8"),
+  newRuta("nodo3-9", "nodo3-10"),
+  newRuta("nodo3-10", "nodo3-9"),
+  newRuta("nodo3-10", "nodo3-11"),
+  newRuta("nodo3-11", "nodo3-10"),
+  newRuta("nodo3-4", "nodo3-17"),
+  newRuta("nodo3-17", "nodo3-4"),
+  newRuta("nodo3-0", "nodo3-12"), //Escalera
+  newRuta("nodo3-12", "nodo3-0"),
+  newRuta("nodo3-10", "nodo3-16"), //Escalera
+  newRuta("nodo3-16", "nodo3-10"),
+  newRuta("nodo3-2", "nodo3-13"), //Escalera
+  newRuta("nodo3-13", "nodo3-2"),
+  newRuta("nodo3-4", "nodo3-14"), //Escalera
+  newRuta("nodo3-14", "nodo3-4"),
+  newRuta("nodo3-7", "nodo3-15"), //Escalera
+  newRuta("nodo3-15", "nodo3-7"),
 ];
 
 // creacion del grafo
