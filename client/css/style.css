@@ -118,8 +118,8 @@ main {
 }
 
 .piso {
-    height: 100%;
-    max-height: 100%;
+    height: 90%;
+    max-height: 90%;
     position: absolute;
     background-color: #d0d0d0;
 }
@@ -208,7 +208,8 @@ main {
     cursor: not-allowed;
 }
 
-#div_lateral {
+#div_lateral,
+#information {
     position: absolute;
     left: 0;
     width: 0;
@@ -285,4 +286,11 @@ main {
     justify-content: space-between;
     width: 100%;
     cursor: pointer;
+}
+
+#information {
+    border: 2px solid #621518;
+    width: 45vh;
+    min-height: 60vh;
+    margin-left: 8vh;
 }
