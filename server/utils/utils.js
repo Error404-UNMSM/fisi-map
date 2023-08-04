@@ -6,10 +6,10 @@ export function getDistancia(a, b) {
 
 export function getCaminoMasCorto(padres, destino) {
   let camino = [destino];
-  let padre = padres[destino];
+  let padre = padres.get(destino);
   while (padre) {
     camino.push(padre);
-    padre = padres[padre];
+    padre = padres.get(padre);
   }
   return camino.reverse();
 }
