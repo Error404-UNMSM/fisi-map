@@ -167,9 +167,6 @@ function trazadoRuta(nodo) {
       coordsCamino3.push(nodos[nodo].toArr());
     }
   });
-  console.log(coordsCamino1);
-  console.log(coordsCamino2);
-  console.log(coordsCamino3);
   dibujaRuta(coordsCamino1, coordsCamino2, coordsCamino3);
 }
 
@@ -224,60 +221,38 @@ addEventPoint(pointListPiso3);
 //capas
 
 const pisos = document.querySelector("#pisos");
-const capa1 = document.querySelector("#capa_1");
-const capa2 = document.querySelector("#capa_2");
-const capa3 = document.querySelector("#capa_3");
+const pisoList = document.querySelectorAll(".piso");
+const piso1 = document.querySelector("#capa_1");
+const piso2 = document.querySelector("#capa_2");
+const piso3 = document.querySelector("#capa_3");
 
 //div de buttons
 
 const buttons = document.querySelector("#div_buttons");
 
-// seleccionamos piso y desaparecemos los otros pisos
+// Pasamos a 3D con el piso seleccionado (Optimizado)
 
-capa1.addEventListener("click", (e) => {
-  capa2.style.display = "none";
-  capa3.style.display = "none";
-  capa1.style.transform = "translateZ(0px)"; //Ponemos al medio el piso seleccionado
-  capa1.classList.remove("colored"); //Quitamos el hover del piso seleccionado
-  point.forEach((point) => {
-    //Añadimos el hover a los puntos importantes del piso
-    point.classList.replace("point", "point_colored");
+function addEventPiso(pisoList) {
+  pisoList.forEach((piso) => {
+    piso.addEventListener("click", (e) => {
+      //Ocultamos los pisos diferentes al seleccionado
+      ocultarPisos(piso);
+      //piso.classList.remove("colored"); //Quitamos el hover del piso seleccionado
+      piso.style.backgroundColor = "rgba(0, 0, 0, 0)"; //Quitamos el color del piso seleccionado
+      pisos.classList.replace("rotate", "norotate");
+      div_name.style.display = "flex";
+      buttons.style.display = "flex";
+      point.forEach((point) => {
+        //Añadimos el hover a los puntos importantes del piso
+        point.classList.replace("point", "point_colored");
+      });
+      comprobarPiso();
+    });
   });
-  capa1.style.backgroundColor = "rgba(0, 0, 0, 0)";
-  pisos.classList.replace("rotate", "norotate");
-  div_name.style.display = "flex";
-  buttons.style.display = "flex";
-  comprobarPiso();
-});
+}
 
-capa2.addEventListener("click", (e) => {
-  capa1.style.display = "none";
-  capa3.style.display = "none";
-  capa2.classList.remove("colored");
-  point.forEach((point) => {
-    point.classList.replace("point", "point_colored");
-  });
-  capa2.style.backgroundColor = "rgba(0, 0, 0, 0)";
-  pisos.classList.replace("rotate", "norotate");
-  div_name.style.display = "flex";
-  buttons.style.display = "flex";
-  comprobarPiso();
-});
+addEventPiso(pisoList);
 
-capa3.addEventListener("click", (e) => {
-  capa1.style.display = "none";
-  capa2.style.display = "none";
-  capa3.style.transform = "translateZ(0px)";
-  capa3.classList.remove("colored");
-  point.forEach((point) => {
-    point.classList.replace("point", "point_colored");
-  });
-  capa3.style.backgroundColor = "rgba(0, 0, 0, 0)";
-  pisos.classList.replace("rotate", "norotate");
-  div_name.style.display = "flex";
-  buttons.style.display = "flex";
-  comprobarPiso();
-});
 
 // seleccionamos el boton de ver piso de arriba y ver piso de abajo
 
@@ -287,60 +262,39 @@ const down = document.querySelector("#button_down");
 
 const all = document.querySelector("#button_all");
 
-// funcion para subir de piso
+// funcion para subir de piso y ocultar los otros pisos
 
 up.addEventListener("click", (e) => {
-  if (capa1.style.display == "block") {
-    capa1.style.display = "none";
-    capa2.style.display = "block";
-    capa2.style.transform = "translateZ(0px)";
-    capa2.classList.remove("colored");
-    point.forEach((point) => {
-      point.classList.replace("point", "point_colored");
-    });
-    capa2.style.backgroundColor = "rgba(0, 0, 0, 0)";
-    pisos.classList.replace("rotate", "norotate");
-    buttons.style.display = "flex";
-  } else if (capa2.style.display == "block") {
-    capa2.style.display = "none";
-    capa3.style.display = "block";
-    capa3.style.transform = "translateZ(0px)";
-    capa3.classList.remove("colored");
-    point.forEach((point) => {
-      point.classList.replace("point", "point_colored");
-    });
-    capa3.style.backgroundColor = "rgba(0, 0, 0, 0)";
-    pisos.classList.replace("rotate", "norotate");
-    buttons.style.display = "flex";
+  if (piso1.style.display == "block") {
+    switchToPiso(piso2, "up");
+  } else if (piso2.style.display == "block") {
+    switchToPiso(piso3, "up");
   }
   comprobarPiso();
 });
 
+// funcion para cambiar de piso
+function switchToPiso(pisoSelected, direction) {
+  for(let i = 0; i < pisoList.length; i++) {
+    if(direction == "up") {
+      if(pisoList[i] == pisoSelected) {
+        ocultarPisos(pisoList[i]);
+      }
+    } else if(direction == "back") {
+      if(pisoList[i] == pisoSelected) {
+        ocultarPisos(pisoList[i]);
+      }
+    }
+  }
+}
+
 // funcion para bajar de piso
 
 down.addEventListener("click", (e) => {
-  if (capa2.style.display == "block") {
-    capa2.style.display = "none";
-    capa1.style.display = "block";
-    capa1.style.transform = "translateZ(0px)";
-    capa1.classList.remove("colored");
-    point.forEach((point) => {
-      point.classList.replace("point", "point_colored");
-    });
-    capa1.style.backgroundColor = "rgba(0, 0, 0, 0)";
-    pisos.classList.replace("rotate", "norotate");
-    buttons.style.display = "flex";
-  } else if (capa3.style.display == "block") {
-    capa3.style.display = "none";
-    capa2.style.display = "block";
-    capa2.style.transform = "translateZ(0px)";
-    capa2.classList.remove("colored");
-    point.forEach((point) => {
-      point.classList.replace("point", "point_colored");
-    });
-    capa2.style.backgroundColor = "rgba(0, 0, 0, 0)";
-    pisos.classList.replace("rotate", "norotate");
-    buttons.style.display = "flex";
+  if (piso2.style.display == "block") {
+    switchToPiso(piso1, "back");
+  } else if (piso3.style.display == "block") {
+    switchToPiso(piso2, "back");
   }
   comprobarPiso();
 });
@@ -348,37 +302,49 @@ down.addEventListener("click", (e) => {
 // funcion para ver todos los pisos
 
 all.addEventListener("click", (e) => {
-  capa1.style.display = "block";
-  capa2.style.display = "block";
-  capa3.style.display = "block";
-  capa1.style.transform = "translateZ(-100px)";
-  capa2.style.transform = "translateZ(0px)";
-  capa3.style.transform = "translateZ(100px)";
-  capa1.classList.add("colored");
-  capa2.classList.add("colored");
-  capa3.classList.add("colored");
+  pisoList.forEach((piso) => {
+    piso.style.display = "block";
+    piso.classList.add("colored");
+    piso.style.backgroundColor = "rgba(208, 208, 208, 100)";
+    if (piso.id == "capa_1") {
+      piso.style.transform = "translateZ(-100px)";
+    } else if (piso.id == "capa_2") {
+      piso.style.transform = "translateZ(0px)";
+    } else {
+      piso.style.transform = "translateZ(100px)";
+    }
+  });
   point.forEach((point) => {
     point.classList.replace("point_colored", "point");
   });
-  capa1.style.backgroundColor = "rgba(208, 208, 208, 100)";
-  capa1.style.tran;
-  capa2.style.backgroundColor = "rgba(208, 208, 208, 100)";
-  capa3.style.backgroundColor = "rgba(208, 208, 208, 100)";
   pisos.classList.replace("norotate", "rotate");
   buttons.style.display = "none";
   div_name.style.display = "none";
 });
 
+
+// funcion para comprobar en que piso estamos
 function comprobarPiso() {
-  if (capa1.style.display == "block") {
+  if (piso1.style.display == "block") {
     name_floor.innerHTML = "Piso 1";
     down.disabled = true;
-  } else if (capa2.style.display == "block") {
+  } else if (piso2.style.display == "block") {
     name_floor.innerHTML = "Piso 2";
     up.disabled = false;
     down.disabled = false;
-  } else if (capa3.style.display == "block") {
+  } else if (piso3.style.display == "block") {
     name_floor.innerHTML = "Piso 3";
     up.disabled = true;
+  }
+}
+
+function ocultarPisos(piso) {
+  for (let i = 0; i < pisoList.length; i++) {
+    if (pisoList[i] != piso) {
+      pisoList[i].style.display = "none";
+    }
+    piso.style.display = "block";
+    piso.style.transform = "translateZ(0px)";
+    piso.style.backgroundColor = "rgba(0, 0, 0, 0)";
   }
 }
