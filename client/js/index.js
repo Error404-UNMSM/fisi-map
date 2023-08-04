@@ -11,9 +11,25 @@ function newRuta(nodo1, nodo2) {
 
 const nodos = {};
 
+// ! Imprime los nodos
+// const exported_nodes = {};
+
 nodoList.forEach((nodo) => {
   nodos[nodo.id] = new Coord(nodo.getAttribute("cx"), nodo.getAttribute("cy"));
+  
+  // ! Imprime los nodos
+  // let x = nodo.getAttribute("cx");
+  // let y = nodo.getAttribute("cy");
+  // let piso = nodo.id.startsWith("nodo1")
+  //   ? 1
+  //   : nodo.id.startsWith("nodo2")
+  //   ? 2
+  //   : 3;
+  // exported_nodes[nodo.id] = { x, y, piso };
 });
+
+// ! Imprime los nodos
+// console.log(JSON.stringify(exported_nodes));
 
 // se definen las rutas (TODOS LOS VECINOS)
 const rutas = [
@@ -145,6 +161,9 @@ const g = new Grafo();
 Object.keys(nodos).forEach((element) => g.addNodo(element));
 rutas.forEach((ruta) => g.addRuta(...ruta));
 
+// ! Imprime las rutas
+// console.log(JSON.stringify(g.listaAdyacencia));
+
 // se define el nodo de origen
 g.setOrigen("nodo1-0");
 
@@ -183,6 +202,15 @@ function trazadoRuta(nodo) {
 //Ordenamos los puntos por piso
 
 const point = document.querySelectorAll(".point");
+
+// ! Imprime los points
+// const exported_points = [];
+// point.forEach((point) => exported_points.push({
+//   point_id: point.id,
+//   node_id: point.getAttribute("nodo"),
+//   name: point.getAttribute("name")
+// }));
+// console.log(JSON.stringify(exported_points));
 
 const list = document.querySelector(".list");
 const pointListTodos = [];
