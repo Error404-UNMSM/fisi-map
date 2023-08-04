@@ -204,7 +204,7 @@ function trazadoRuta(nodo) {
       coordsCamino3.push(nodos[nodo].toArr());
     }
   });
-  dibujaRuta(coordsCamino1, coordsCamino2, coordsCamino3);
+  dibujaRuta([coordsCamino1, coordsCamino2, coordsCamino3]);
 }
 
 //Ordenamos los puntos por piso
@@ -501,4 +501,4 @@ async function mostrarInformacion(element) {
 }
 
 console.log(await getPath("nodo1-28", "nodo2-28"));
-//dibujaRuta(await getPath("nodo1-28", "nodo2-28"));
+dibujaRuta(await getPath("nodo1-28", "nodo2-28"));
