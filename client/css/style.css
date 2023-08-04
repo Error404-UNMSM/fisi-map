@@ -16,22 +16,40 @@ main{
     color: whitesmoke;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    align-content: center;
+    justify-content: space-around;
     background-color: #621518;
     height: 80px;
     padding: 0 20px;
 }
 
-.top-page h1{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    margin: auto 0px;
-    font-size: 40px;
-}
-
 .logo {
     width: 60px;
     height: 60px;
+}
+
+#links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+#links li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+
+}
+
+.select {
+    background-color: black;
 }
 
 .cursores {
