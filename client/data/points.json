@@ -1,111 +1,132 @@
 [
+  { "point_id": "escaleras1-1", "node_id": "nodo1-22", "name": "Escaleras" },
+  { "point_id": "escaleras1-2", "node_id": "nodo1-27", "name": "Escaleras" },
+  { "point_id": "escaleras1-3", "node_id": "nodo1-23", "name": "Escaleras" },
+  { "point_id": "escaleras1-4", "node_id": "nodo1-25", "name": "Escaleras" },
+  { "point_id": "escaleras1-5", "node_id": "nodo1-26", "name": "Escaleras" },
+  { "point_id": "escaleras1-6", "node_id": "nodo1-24", "name": "Escaleras" },
+  { "point_id": "sshh1-1", "node_id": "nodo1-28", "name": "SSHH" },
+  { "point_id": "sshh1-2", "node_id": "nodo1-32", "name": "SSHH" },
+  { "point_id": "aulas100-1", "node_id": "nodo1-33", "name": "Aulas 100-11X" },
+  { "point_id": "aulas100-2", "node_id": "nodo1-34", "name": "Aulas 110-11X" },
+  {
+    "point_id": "aulas-np1-1",
+    "node_id": "nodo1-30",
+    "name": "Aulas NP 100-11X"
+  },
+  {
+    "point_id": "aulas-np1-2",
+    "node_id": "nodo1-31",
+    "name": "Aulas NP 100-11X"
+  },
   {
     "point_id": "losa-deportiva",
     "node_id": "nodo1-20",
     "name": "Losa Deportiva"
   },
-  { "point_id": "mad", "node_id": "nodo1-0", "name": "MAD" },
-  { "point_id": "escaleras-1-1", "node_id": "nodo1-22", "name": "Escaleras" },
   {
-    "point_id": "aulas-codigo-100-1",
-    "node_id": "nodo1-10",
-    "name": "Aulas 100-11X"
+    "point_id": "mad",
+    "node_id": "nodo1-42",
+    "name": "Módulo de Atención Docente"
   },
   { "point_id": "quiosco", "node_id": "nodo1-27", "name": "Quiosco" },
-  { "point_id": "escaleras-1-2", "node_id": "nodo1-27", "name": "Escaleras" },
-  { "point_id": "dga-cerseu", "node_id": "nodo1-1", "name": "Cerseu" },
-  { "point_id": "auditorio", "node_id": "nodo1-6", "name": "Auditorio" },
+  { "point_id": "auditorio", "node_id": "nodo1-29", "name": "Auditorio" },
   { "point_id": "capilla", "node_id": "nodo1-16", "name": "Capilla" },
-  { "point_id": "escaleras1-6", "node_id": "nodo1-24", "name": "Escaleras" },
   { "point_id": "vestidores", "node_id": "nodo1-19", "name": "Vestidores" },
-  { "point_id": "sshh-1-2", "node_id": "nodo1-8", "name": "SSHH" },
-  { "point_id": "escaleras-1-4", "node_id": "nodo1-25", "name": "Escaleras" },
   {
-    "point_id": "aulas-np1-1",
-    "node_id": "nodo1-13",
-    "name": "Aulas NP 100-11X"
+    "point_id": "direccion-escuelacc",
+    "node_id": "nodo1-37",
+    "name": "Dirección Escuela de CC"
   },
-  {
-    "point_id": "aulas-np1-2",
-    "node_id": "nodo1-8",
-    "name": "Aulas NP 100-11X"
-  },
-  { "point_id": "escaleras1-5", "node_id": "nodo1-26", "name": "Escaleras" },
-  {
-    "point_id": "aulas-codigo-100-2",
-    "node_id": "nodo1-10",
-    "name": "Aulas 110-11X"
-  },
-  { "point_id": "usgom-decc", "node_id": "nodo1-3", "name": "USGOM" },
-  { "point_id": "sshh-1-1", "node_id": "nodo1-5", "name": "SSHH" },
-  { "point_id": "escaleras1-3", "node_id": "nodo1-23", "name": "Escaleras" },
-  { "point_id": "decanato", "node_id": "nodo2-14", "name": "Decanato" },
+  { "point_id": "usgom", "node_id": "nodo1-35", "name": "USGOM" },
+  { "point_id": "cerseu", "node_id": "nodo1-39", "name": "Cerseu" },
+  { "point_id": "dga", "node_id": "nodo1-40", "name": "DGA" },
+  { "point_id": "economia", "node_id": "nodo1-41", "name": "Economía" },
   { "point_id": "escaleras2-1", "node_id": "nodo2-16", "name": "Escaleras" },
-  { "point_id": "aulas200-1", "node_id": "nodo2-10", "name": "Aulas 200-20X" },
   { "point_id": "escaleras2-2", "node_id": "nodo2-21", "name": "Escaleras" },
-  { "point_id": "comedor", "node_id": "nodo2-4", "name": "Comedor" },
-  {
-    "point_id": "tercio",
-    "node_id": "nodo2-11",
-    "name": "Tercio Estudiantil FISI"
-  },
-  { "point_id": "sshh2-2", "node_id": "nodo2-6", "name": "SSHH" },
+  { "point_id": "escaleras2-3", "node_id": "nodo2-17", "name": "Escaleras" },
   { "point_id": "escaleras2-4", "node_id": "nodo2-19", "name": "Escaleras" },
+  { "point_id": "escaleras2-5", "node_id": "nodo2-20", "name": "Escaleras" },
+  { "point_id": "escaleras2-6", "node_id": "nodo2-18", "name": "Escaleras" },
+  { "point_id": "sshh2-1", "node_id": "nodo2-23", "name": "SSHH" },
+  { "point_id": "sshh2-2", "node_id": "nodo2-28", "name": "SSHH" },
+  { "point_id": "aulas200-1", "node_id": "nodo2-31", "name": "Aulas 200-20X" },
+  { "point_id": "aulas200-2", "node_id": "nodo2-30", "name": "Aulas 20X-210" },
+  { "point_id": "aulas200-3", "node_id": "nodo2-33", "name": "Aulas 210-21X" },
   {
     "point_id": "aulas-np2",
-    "node_id": "nodo2-15",
+    "node_id": "nodo2-26",
     "name": "Aulas NP 200-20X"
   },
-  { "point_id": "laboratorio2-2", "node_id": "nodo2-6", "name": "Laboratorio" },
-  { "point_id": "escaleras2-5", "node_id": "nodo2-20", "name": "Escaleras" },
-  { "point_id": "sshh2-1", "node_id": "nodo2-3", "name": "SSHH" },
-  { "point_id": "escaleras2-3", "node_id": "nodo2-17", "name": "Escaleras" },
-  { "point_id": "mdc", "node_id": "nodo2-7", "name": "Micro Data Center" },
   {
     "point_id": "laboratorio2-1",
-    "node_id": "nodo2-13",
+    "node_id": "nodo2-35",
     "name": "Laboratorio"
   },
-  { "point_id": "aula-magna", "node_id": "nodo2-13", "name": "Aula Magna" },
-  { "point_id": "aulas200-3", "node_id": "nodo2-12", "name": "Aulas 210-21X" },
-  { "point_id": "aulas200-2", "node_id": "nodo2-10", "name": "Aulas 20X-210" },
-  { "point_id": "trofeos", "node_id": "nodo2-9", "name": "Trofeos" },
-  { "point_id": "escaleras2-6", "node_id": "nodo2-18", "name": "Escaleras" },
+  {
+    "point_id": "laboratorio2-2",
+    "node_id": "nodo2-27",
+    "name": "Laboratorio"
+  },
+  { "point_id": "decanato", "node_id": "nodo2-22", "name": "Decanato" },
+  { "point_id": "comedor", "node_id": "nodo2-24", "name": "Comedor" },
+  {
+    "point_id": "tercio",
+    "node_id": "nodo2-32",
+    "name": "Tercio Estudiantil FISI"
+  },
+  { "point_id": "mdc", "node_id": "nodo2-29", "name": "Micro Data Center" },
+  { "point_id": "aula-magna", "node_id": "nodo2-34", "name": "Aula Magna" },
+  { "point_id": "trofeos", "node_id": "nodo2-36", "name": "Trofeos" },
   {
     "point_id": "sala-catedraticos",
-    "node_id": "nodo2-2",
+    "node_id": "nodo2-25",
     "name": "Sala de catedráticos"
   },
-  { "point_id": "unayoe", "node_id": "nodo3-0", "name": "UNAYOE y Bienestar" },
   { "point_id": "escaleras3-1", "node_id": "nodo3-12", "name": "Escaleras" },
-  { "point_id": "laboratorio3-1", "node_id": "nodo3-8", "name": "Laboratorio" },
   { "point_id": "escaleras3-2", "node_id": "nodo3-16", "name": "Escaleras" },
-  {
-    "point_id": "mat-dirEscuela-softsis",
-    "node_id": "nodo3-1",
-    "name": "Bloque de Matrícula y Dirección de las Escuelas de Software y Sistemas"
-  },
-  { "point_id": "soporte", "node_id": "nodo3-9", "name": "Soporte" },
-  { "point_id": "sshh3-2", "node_id": "nodo3-5", "name": "SSHH" },
-  { "point_id": "escaleras3-4", "node_id": "nodo3-14", "name": "Escaleras" },
-  {
-    "point_id": "aula-musica",
-    "node_id": "nodo3-17",
-    "name": "Aula de música"
-  },
-  { "point_id": "escaleras3-5", "node_id": "nodo3-15", "name": "Escaleras" },
-  { "point_id": "laboratorio3-3", "node_id": "nodo3-7", "name": "Laboratorio" },
-  { "point_id": "sshh3-1", "node_id": "nodo3-3", "name": "SSHH" },
   { "point_id": "escaleras3-3", "node_id": "nodo3-13", "name": "Escaleras" },
+  { "point_id": "escaleras3-4", "node_id": "nodo3-14", "name": "Escaleras" },
+  { "point_id": "escaleras3-5", "node_id": "nodo3-15", "name": "Escaleras" },
+  { "point_id": "SSHH3-1", "node_id": "nodo3-20", "name": "SSHH" },
+  { "point_id": "SSHH3-2", "node_id": "nodo3-29", "name": "SSHH" },
   {
-    "point_id": "laboratorio3-2",
-    "node_id": "nodo3-11",
+    "point_id": "laboratorio3-1",
+    "node_id": "nodo3-24",
     "name": "Laboratorio"
   },
-  { "point_id": "publicidad", "node_id": "nodo3-8", "name": "Publicidad" },
   {
-    "point_id": "acadSistemas",
-    "node_id": "nodo3-10",
-    "name": "Departamento Académico de sistemas"
+    "point_id": "laboratorio3-2",
+    "node_id": "nodo3-28",
+    "name": "Laboratorio"
+  },
+  {
+    "point_id": "laboratorio3-3",
+    "node_id": "nodo3-19",
+    "name": "Laboratorio"
+  },
+  { "point_id": "unayoe", "node_id": "nodo3-22", "name": "UNAYOE y Bienestar" },
+  { "point_id": "matricula", "node_id": "nodo3-33", "name": "Matrícula" },
+  { "point_id": "soporte", "node_id": "nodo3-25", "name": "Soporte" },
+  {
+    "point_id": "aula-musica",
+    "node_id": "nodo3-18",
+    "name": "Aula de música"
+  },
+  { "point_id": "publicidad", "node_id": "nodo3-23", "name": "Publicidad" },
+  {
+    "point_id": "dept-acad-sis",
+    "node_id": "nodo3-27",
+    "name": "Departamento Académico de Sistemas"
+  },
+  {
+    "point_id": "dir-soft",
+    "node_id": "nodo3-21",
+    "name": "Dirección Escuela de Software"
+  },
+  {
+    "point_id": "dir-sis",
+    "node_id": "nodo3-31",
+    "name": "Dirección Escuela de Sistemas"
   }
 ]
