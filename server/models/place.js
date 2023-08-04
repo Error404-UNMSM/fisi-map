@@ -15,25 +15,29 @@ const place_schema = new mongoose.Schema({
   },
   description: {
     type: String,
-    default: "",
+    default:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi officia, labore aut quia atque natus ut!",
   },
-  floor: {
-    type: Number,
-    required: [true, "Place floor number is required"],
-  },
-  category: {
+  // floor: {
+  //   type: Number,
+  //   required: [true, "Place floor number is required"],
+  // },
+  // category: {
+  //   type: String,
+  //   required: [true, "Place category is required"],
+  // },
+  imageSrc: {
     type: String,
-    required: [true, "Place category is required"],
+    default:
+      "https://upload.wikimedia.org/wikipedia/commons/4/46/UNMSM_Facultad_de_Ingenier%C3%ADa_de_Sistemas_e_Inform%C3%A1tica_2019_-_Vista_lateral.jpg",
   },
-  photos: {
-    type: [String],
-    default: [
-      "https://images.freeimages.com/images/large-previews/a87/school-hallway-1559891.jpg",
-    ],
+  imageAlt: {
+    type: String,
+    default: "FISI",
   },
   predecessors: {
-    type: [String],
-    default: [],
+    type: Map,
+    of: String,
   },
 });
 
