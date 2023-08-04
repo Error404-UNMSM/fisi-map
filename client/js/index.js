@@ -34,32 +34,47 @@ nodoList.forEach((nodo) => {
 // se definen las rutas (TODOS LOS VECINOS)
 const rutas = [
   newRuta("nodo1-0", "nodo1-1"),
-  newRuta("nodo1-1", "nodo1-2"),
+  newRuta("nodo1-1", "nodo1-38"),
+  newRuta("nodo1-38", "nodo1-2"),
   newRuta("nodo1-2", "nodo1-3"),
-  newRuta("nodo1-2", "nodo1-22"),
+  newRuta("nodo1-3", "nodo1-36"),
+  newRuta("nodo1-36", "nodo1-4"),
+  newRuta("nodo1-4", "nodo1-5"),
+  newRuta("nodo1-5", "nodo1-6"),
+  newRuta("nodo1-6", "nodo1-7"),
+  newRuta("nodo1-7", "nodo1-8"),
+  newRuta("nodo1-8", "nodo1-9"),
   newRuta("nodo1-3", "nodo1-10"),
   newRuta("nodo1-10", "nodo1-11"),
   newRuta("nodo1-11", "nodo1-12"),
-  newRuta("nodo1-11", "nodo1-27"),
-  newRuta("nodo1-27", "nodo1-21"),
-  newRuta("nodo1-3", "nodo1-4"),
-  newRuta("nodo1-4", "nodo1-23"),
-  newRuta("nodo1-4", "nodo1-5"),
+  newRuta("nodo1-7", "nodo1-13"),
   newRuta("nodo1-5", "nodo1-14"),
   newRuta("nodo1-14", "nodo1-15"),
   newRuta("nodo1-15", "nodo1-16"),
   newRuta("nodo1-16", "nodo1-17"),
-  newRuta("nodo1-17", "nodo1-20"),
   newRuta("nodo1-17", "nodo1-18"),
   newRuta("nodo1-18", "nodo1-19"),
-  newRuta("nodo1-5", "nodo1-6"),
-  newRuta("nodo1-6", "nodo1-24"),
-  newRuta("nodo1-6", "nodo1-7"),
-  newRuta("nodo1-7", "nodo1-13"),
-  newRuta("nodo1-7", "nodo1-25"),
-  newRuta("nodo1-7", "nodo1-8"),
-  newRuta("nodo1-8", "nodo1-9"),
-  newRuta("nodo1-9", "nodo1-26"),
+  newRuta("nodo1-17", "nodo1-20"),
+  newRuta("nodo1-1", "nodo1-40"), //Hacia DGA
+  newRuta("nodo1-1", "nodo1-41"), //Hacia economía
+  newRuta("nodo1-38", "nodo1-39"), //Hacia Cerseu
+  newRuta("nodo1-38", "nodo1-42"), //Hacia módulo de atención docente
+  newRuta("nodo1-3", "nodo1-37"), //Hacia dirección escuela cc
+  newRuta("nodo1-36", "nodo1-35"), //Hacia usgom
+  newRuta("nodo1-10", "nodo1-33"), //Hacia aulas 100-1
+  newRuta("nodo1-10", "nodo1-34"), //Hacia aulas 100-2
+  newRuta("nodo1-5", "nodo1-28"), //Hacia Baño 1-1
+  newRuta("nodo1-6", "nodo1-29"), //Hacia Auditorio
+  newRuta("nodo1-13", "nodo1-30"), //Hacia aulas np 1-1
+  newRuta("nodo1-8", "nodo1-31"), //Hacia aulas np 1-2
+  newRuta("nodo1-8", "nodo1-32"), //Hacia Baño 1-2
+  newRuta("nodo1-2", "nodo1-22"), //Escaleras
+  newRuta("nodo1-11", "nodo1-27"), //Escaleras
+  newRuta("nodo1-21", "nodo1-27"), //Escaleras
+  newRuta("nodo1-4", "nodo1-23"), //Escaleras
+  newRuta("nodo1-6", "nodo1-24"), //Escaleras
+  newRuta("nodo1-7", "nodo1-25"), //Escaleras
+  newRuta("nodo1-9", "nodo1-26"), //Escaleras
   //Rutas para el piso 2
   newRuta("nodo2-0", "nodo2-1"),
   newRuta("nodo2-1", "nodo2-2"),
@@ -76,17 +91,32 @@ const rutas = [
   newRuta("nodo2-11", "nodo2-12"),
   newRuta("nodo2-12", "nodo2-13"),
   newRuta("nodo2-5", "nodo2-15"),
+  newRuta("nodo2-15", "nodo2-26"), //Hacia aulas np 2
+  newRuta("nodo2-14", "nodo2-22"), //Hacia decanato
+  newRuta("nodo2-2", "nodo2-25"), //Hacia sala de catedráticos
+  newRuta("nodo2-3", "nodo2-23"), //Hacia baño 2-1
+  newRuta("nodo2-4", "nodo2-24"), //Hacia comedor
+  newRuta("nodo2-6", "nodo2-27"), //Hacia laboratorio2-2
+  newRuta("nodo2-6", "nodo2-28"), //Hacia baño 2-2
+  newRuta("nodo2-7", "nodo2-29"), //Hacia Micro data center
+  newRuta("nodo2-9", "nodo2-36"), //Hacia trofeos
+  newRuta("nodo2-10", "nodo2-30"), //Hacia aulas 200-2
+  newRuta("nodo2-10", "nodo2-31"), //Hacia aulas 200-1
+  newRuta("nodo2-11", "nodo2-32"), //Hacia tercio
+  newRuta("nodo2-12", "nodo2-33"), //Hacia aulas 200-3
+  newRuta("nodo2-13", "nodo2-34"), //Hacia aula Magna
+  newRuta("nodo2-13", "nodo2-35"), //Hacia laboratorio 2-1
   newRuta("nodo2-0", "nodo2-16"), //Escalera
-  newRuta("nodo2-16", "nodo2-0"),
   newRuta("nodo2-12", "nodo2-21"), //Escalera
   newRuta("nodo2-2", "nodo2-17"), //Escalera
   newRuta("nodo2-4", "nodo2-18"), //Escalera
   newRuta("nodo2-5", "nodo2-19"), //Escalera
   newRuta("nodo2-8", "nodo2-20"), //Escalera
-  newRuta("nodo2-20", "nodo2-8"),
   //Rutas para el piso 3
-  newRuta("nodo3-0", "nodo3-1"),
-  newRuta("nodo3-1", "nodo3-2"),
+  newRuta("nodo3-0", "nodo3-30"),
+  newRuta("nodo3-30", "nodo3-1"),
+  newRuta("nodo3-1", "nodo3-32"),
+  newRuta("nodo3-32", "nodo3-2"),
   newRuta("nodo3-2", "nodo3-3"),
   newRuta("nodo3-3", "nodo3-4"),
   newRuta("nodo3-4", "nodo3-5"),
@@ -94,9 +124,23 @@ const rutas = [
   newRuta("nodo3-6", "nodo3-7"),
   newRuta("nodo3-1", "nodo3-8"),
   newRuta("nodo3-8", "nodo3-9"),
-  newRuta("nodo3-9", "nodo3-10"),
+  newRuta("nodo3-9", "nodo3-26"),
+  newRuta("nodo3-26", "nodo3-10"),
   newRuta("nodo3-10", "nodo3-11"),
   newRuta("nodo3-4", "nodo3-17"),
+  newRuta("nodo3-0", "nodo3-22"), //Hacia UNAYOE
+  newRuta("nodo3-30", "nodo3-31"), //Hacia dirección de sistemas
+  newRuta("nodo3-1", "nodo3-21"), //Hacia dirección de software
+  newRuta("nodo3-32", "nodo3-33"), //Hacia Matrícula
+  newRuta("nodo3-8", "nodo3-23"), //Hacia Publicidad
+  newRuta("nodo3-8", "nodo3-24"), //Hacia laboratorio 3-1
+  newRuta("nodo3-9", "nodo3-25"), //Hacia Soporte
+  newRuta("nodo3-26", "nodo3-27"), //Hacia Departamento académico de sistemas
+  newRuta("nodo3-11", "nodo3-28"), //Hacia laboratorio 3-2
+  newRuta("nodo3-3", "nodo3-20"), //Hacia baño 3-1
+  newRuta("nodo3-17", "nodo3-18"), //Hacia aula de música
+  newRuta("nodo3-5", "nodo3-29"), //Hacia baño 3-2
+  newRuta("nodo3-7", "nodo3-19"), //Hacia laboratorio 3-3
   newRuta("nodo3-0", "nodo3-12"), //Escalera
   newRuta("nodo3-10", "nodo3-16"), //Escalera
   newRuta("nodo3-2", "nodo3-13"), //Escalera
@@ -104,7 +148,7 @@ const rutas = [
   newRuta("nodo3-7", "nodo3-15"), //Escalera
   //rutas para escaleras
   //Escaleras de 1er a 2do piso
-  newRuta("nodo1-22", "nodo2-16"), //Escalera
+  newRuta("nodo1-22", "nodo2-16"), 
   newRuta("nodo1-23", "nodo2-17"),
   newRuta("nodo1-24", "nodo2-18"),
   newRuta("nodo1-25", "nodo2-19"),
