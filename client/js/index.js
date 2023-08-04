@@ -249,7 +249,10 @@ function addEventPoint(pointList) {
       let nodo = element.getAttribute("nodo");
       trazadoRuta(nodo);
       await mostrarInformacion(element);
-      
+      infoBarra.style.visibility = "visible";
+      if (div_content.classList.contains("show")) {
+        div_content.classList.toggle("show");
+      }
     });
     if(piso1.style.display == "block" && piso2.style.display == "block" && piso3.style.display == "block"){
       name_point.style.display = "none";
@@ -378,6 +381,9 @@ all.addEventListener("click", (e) => {
   pisos.classList.replace("norotate", "rotate");
   buttons.style.display = "none";
   name_point.style.display = "none";
+  if (div_content.classList.contains("show")) {
+    div_content.classList.toggle("show");
+  }
 });
 
 
