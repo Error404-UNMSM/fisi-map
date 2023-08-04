@@ -1,5 +1,7 @@
+import List from "list.js";
 import { Grafo, Coord } from "./dijkstra.js";
 import dibujaRuta from "./draw.js";
+
 
 const nodoList = document.querySelectorAll(".nodo");
 
@@ -151,6 +153,14 @@ g.setOrigen("nodo1-0");
 // camino mas corto desde el nodo de origen hasta el nodo finish
 //camino = g.getCaminoMasCorto("nodo1-14");
 
+//capas
+
+const pisos = document.querySelector("#pisos");
+const pisoList = document.querySelectorAll(".piso");
+const piso1 = document.querySelector("#capa_1");
+const piso2 = document.querySelector("#capa_2");
+const piso3 = document.querySelector("#capa_3");
+
 let camino, coordsCamino1, coordsCamino2, coordsCamino3;
 
 function trazadoRuta(nodo) {
@@ -174,6 +184,8 @@ function trazadoRuta(nodo) {
 
 const point = document.querySelectorAll(".point");
 
+const list = document.querySelector(".list");
+const pointListTodos = [];
 const pointListPiso1 = [];
 const pointListPiso2 = [];
 const pointListPiso3 = [];
@@ -187,9 +199,9 @@ point.forEach((point) => {
   } else if (point.parentNode.id == "capa_3") {
     pointListPiso3.push(point.id);
   }
+  insertar(point)
 });
 
-const div_name = document.querySelector("#div_name");
 const name_point = document.querySelector("#name_point");
 const name_floor = document.querySelector("#name_floor");
 
@@ -201,15 +213,19 @@ function addEventPoint(pointList) {
       let nodo = element.getAttribute("nodo");
       trazadoRuta(nodo);
     });
-    document.getElementById(point).addEventListener("mouseenter", (e) => {
-      const element = e.target;
-      if (element.getAttribute("name") == null) {
-        name_point.style.display = "none";
-      } else {
-        name_point.innerHTML = element.getAttribute("name");
-        name_point.style.display = "block";
-      }
-    });
+    if(piso1.style.display == "block" && piso2.style.display == "block" && piso3.style.display == "block"){
+      name_point.style.display = "none";
+    }else{
+      name_point.style.display = "block";
+      document.getElementById(point).addEventListener("mouseenter", (e) => {
+        const element = e.target;
+        if (element.getAttribute("name") == null) {
+          name_point.style.display = "none";
+        } else {
+          name_point.innerHTML = element.getAttribute("name");
+        }
+      });
+    } 
   });
 }
 
@@ -218,13 +234,7 @@ addEventPoint(pointListPiso1);
 addEventPoint(pointListPiso2);
 addEventPoint(pointListPiso3);
 
-//capas
 
-const pisos = document.querySelector("#pisos");
-const pisoList = document.querySelectorAll(".piso");
-const piso1 = document.querySelector("#capa_1");
-const piso2 = document.querySelector("#capa_2");
-const piso3 = document.querySelector("#capa_3");
 
 //div de buttons
 
@@ -240,13 +250,22 @@ function addEventPiso(pisoList) {
       //piso.classList.remove("colored"); //Quitamos el hover del piso seleccionado
       piso.style.backgroundColor = "rgba(0, 0, 0, 0)"; //Quitamos el color del piso seleccionado
       pisos.classList.replace("rotate", "norotate");
-      div_name.style.display = "flex";
+      name_point.style.display = "flex";
       buttons.style.display = "flex";
       point.forEach((point) => {
         //Añadimos el hover a los puntos importantes del piso
         point.classList.replace("point", "point_colored");
       });
       comprobarPiso();
+    });
+    piso.addEventListener("mouseenter", (e) => {
+      if (piso == piso1) {
+        name_floor.innerHTML = "Piso 1";
+      } else if (piso == piso2) {
+        name_floor.innerHTML = "Piso 2";
+      } if (piso == piso3) {
+        name_floor.innerHTML = "Piso 3";
+      }
     });
   });
 }
@@ -319,7 +338,7 @@ all.addEventListener("click", (e) => {
   });
   pisos.classList.replace("norotate", "rotate");
   buttons.style.display = "none";
-  div_name.style.display = "none";
+  name_point.style.display = "none";
 });
 
 
@@ -328,6 +347,7 @@ function comprobarPiso() {
   if (piso1.style.display == "block") {
     name_floor.innerHTML = "Piso 1";
     down.disabled = true;
+    up.disabled = false;
   } else if (piso2.style.display == "block") {
     name_floor.innerHTML = "Piso 2";
     up.disabled = false;
@@ -335,9 +355,11 @@ function comprobarPiso() {
   } else if (piso3.style.display == "block") {
     name_floor.innerHTML = "Piso 3";
     up.disabled = true;
+    down.disabled = false;
   }
 }
 
+// funcion para ocultar los pisos que no estan seleccionados
 function ocultarPisos(piso) {
   for (let i = 0; i < pisoList.length; i++) {
     if (pisoList[i] != piso) {
@@ -346,5 +368,70 @@ function ocultarPisos(piso) {
     piso.style.display = "block";
     piso.style.transform = "translateZ(0px)";
     piso.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    pisos.classList.replace("rotate", "norotate");
   }
 }
+
+
+//funcion para crear la lista de puntos e insertarla
+
+function insertar(point) {
+  const li = document.createElement("li");
+  var item = document.createElement("p");
+  var item_piso = document.createElement("p");
+  var name = point.getAttribute("name");
+  var id = point.getAttribute("id");
+  var piso = point.parentNode.getAttribute("id");
+  var nodo = point.getAttribute("nodo");
+  item.innerHTML = name;
+  item.id = id;
+  item.classList.add("list-item");
+  item.setAttribute("piso", piso);
+  item.setAttribute("nodo", nodo);
+  if(piso == "capa_1") {
+  item_piso.innerHTML = "1";
+  } else if(piso == "capa_2") {
+    item_piso.innerHTML = "2";
+  } else {
+    item_piso.innerHTML = "3";
+  }
+  li.appendChild(item);
+  li.appendChild(item_piso);
+  list.appendChild(li);
+}
+
+const listaPointBarra = document.querySelectorAll(".list-item");
+
+
+function addEventList(listaPointBarra) {
+  listaPointBarra.forEach((p) => {
+    const nodo = p.getAttribute("nodo");
+    const piso = p.getAttribute("piso");
+    p.addEventListener("click", (e) => {
+      trazadoRuta(nodo);
+      if(piso == "capa_1") {
+        ocultarPisos(piso1);
+      } else if(piso == "capa_2") {
+        ocultarPisos(piso2);
+      } else {
+        ocultarPisos(piso3);
+      }
+    });
+  });
+}
+
+addEventList(listaPointBarra);
+
+const div_button = document.querySelector("#div_button");
+const div_content = document.querySelector("#div_content");
+
+div_button.addEventListener("click", (e) => {
+  div_content.classList.toggle("show");
+});
+
+var options = {
+  valueNames: ["list-item"],
+}
+
+var userList = new List('test-list', options);
+
