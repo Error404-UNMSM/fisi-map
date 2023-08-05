@@ -187,7 +187,7 @@ main {
     justify-content: flex-start;    
     background-color: #fbfbfb;
     box-shadow: #41414191 0px 0px 10px 0px;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .show {
