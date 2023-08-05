@@ -27,7 +27,6 @@ async function getParents(origen) {
 }
 
 async function savePath(start, end, route) {
-  console.log(start, end, route);
   await Path.insertMany([
     { start, end, route },
     { start: end, end: start, route },

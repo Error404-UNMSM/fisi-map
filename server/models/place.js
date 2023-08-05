@@ -16,7 +16,7 @@ const place_schema = new mongoose.Schema({
   description: {
     type: String,
     default:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi officia, labore aut quia atque natus ut!",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus eius rem incidunt illum quas placeat dolor sapiente, totam minus possimus nisi dolore enim repellat! Non aperiam culpa omnis ad aliquam?",
   },
   // floor: {
   //   type: Number,
