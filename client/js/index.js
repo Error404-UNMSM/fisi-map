@@ -1,11 +1,10 @@
 import List from "list.js";
-import { Grafo, Coord } from "./dijkstra.js";
 import dibujaRuta from "./draw.js";
 import { getPath, getPointInfo } from "./api.js";
 
-const nodoList = document.querySelectorAll(".nodo");
+// const nodoList = document.querySelectorAll(".nodo");
 const ENTRADA_1 = "nodo1-0";
-
+/*
 function newRuta(nodo1, nodo2) {
   return [nodo1, nodo2, nodos[nodo1].getDistancia(nodos[nodo2])];
 }
@@ -181,6 +180,7 @@ g.setOrigen("nodo1-0");
 // camino mas corto desde el nodo de origen hasta el nodo finish
 //camino = g.getCaminoMasCorto("nodo1-14");
 
+*/
 //capas
 
 const pisos = document.querySelector("#pisos");
@@ -189,7 +189,7 @@ const piso1 = document.querySelector("#capa_1");
 const piso2 = document.querySelector("#capa_2");
 const piso3 = document.querySelector("#capa_3");
 
-let camino, coordsCamino1, coordsCamino2, coordsCamino3;
+// let camino, coordsCamino1, coordsCamino2, coordsCamino3;
 
 async function trazadoRuta(origen, destino) {
   console.log(origen, destino);
@@ -405,6 +405,7 @@ function ocultarPisos(piso) {
     piso.style.backgroundColor = "rgba(0, 0, 0, 0)";
     pisos.classList.replace("rotate", "norotate");
   }
+  buttons.style.display = "flex";
 }
 
 
@@ -467,7 +468,9 @@ function addEventList(listaPointBarra) {
     const nodo = p.getAttribute("nodo");
     const piso = p.getAttribute("piso");
     p.addEventListener("click", async (e) => {
-      await trazadoRuta(ENTRADA_1,nodo);
+      if(window.matchMedia("(max-width: 768px)").matches){
+        await trazadoRuta(ENTRADA_1,nodo);
+      }
       if(piso == "capa_1") {
         ocultarPisos(piso1);
       } else if(piso == "capa_2") {
@@ -490,8 +493,6 @@ function addEventList(listaPointBarra) {
 }
 
 addEventList(listaPointBarra);
-
-
 
 div_button.addEventListener("click", (e) => {
   if (div_content_2.classList.contains("show")) {
@@ -561,9 +562,18 @@ comoLlegar.addEventListener("click", async (e) => {
 btn_direction_2.addEventListener("click", async (e) => {
   const startValue = select_box.value;
   const endValue = select_box_2.value;
+  const piso = endValue[4];
+  console.log(piso);
   if(window.matchMedia("(max-width: 768px)").matches){
     div_content_2.classList.toggle("show");
   }
+  if(piso == "1") {
+     ocultarPisos(piso1);
+   } else if(piso == "2") {
+     ocultarPisos(piso2);
+   } else {
+     ocultarPisos(piso3);
+   }
   await trazadoRuta(startValue,endValue);
 });
 
