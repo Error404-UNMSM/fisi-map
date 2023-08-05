@@ -240,10 +240,9 @@ function addEventPoint(pointList) {
     document.getElementById(point).addEventListener("click", async (e) => {
       const element = e.target;
       let nodo = element.getAttribute("nodo");
-      await trazadoRuta(ENTRADA_1,nodo);
       await mostrarInformacion(element);
       if(window.matchMedia("(max-width: 768px)").matches){
-
+        await trazadoRuta(ENTRADA_1,nodo);
       }else {
         div_content_3.classList.add("show");
       }
@@ -252,19 +251,10 @@ function addEventPoint(pointList) {
         div_content.classList.remove("show");
       }
     });
-    if(piso1.style.display == "block" && piso2.style.display == "block" && piso3.style.display == "block"){
-      name_point.style.display = "none";
-    }else{
-      name_point.style.display = "block";
-      document.getElementById(point).addEventListener("mouseenter", (e) => {
-        const element = e.target;
-        if (element.getAttribute("name") == null) {
-          name_point.style.display = "none";
-        } else {
-          name_point.innerHTML = element.getAttribute("name");
-        }
-      });
-    } 
+    document.getElementById(point).addEventListener("mouseenter", (e) => {
+      const element = e.target;
+      name_point.innerHTML = element.getAttribute("name");
+    });
   });
 }
 
@@ -300,10 +290,13 @@ function addEventPiso(pisoList) {
     piso.addEventListener("mouseenter", (e) => {
       if (piso == piso1) {
         name_floor.innerHTML = "Piso 1";
+        name_point.style.display = "block";
       } else if (piso == piso2) {
         name_floor.innerHTML = "Piso 2";
+        name_point.style.display = "block";
       } if (piso == piso3) {
         name_floor.innerHTML = "Piso 3";
+        name_point.style.display = "block";
       }
     });
   });
@@ -522,6 +515,8 @@ const content_details = document.querySelector(".content-details");
 const content_description = document.querySelector(".content-description");
 const content_image = document.querySelector(".content-image");
 
+const comoLlegar = document.querySelector("#comoLlegar");
+
 // Función para desplegar la información del arreglo en el elemento aside con ID "info"
 async function mostrarInformacion(element) {
   const info = await getPointInfo(element.id);
@@ -536,6 +531,7 @@ async function mostrarInformacion(element) {
     content_image.src = 'https://dicesamexico.com.mx/wp-content/uploads/2021/06/no-image.jpeg';
     content_image.alt = '';
   }
+  comoLlegar.setAttribute("nodo", element.getAttribute("nodo"));
 }
 
 const btn_direction = document.querySelector("#button_direction");
@@ -548,6 +544,17 @@ btn_direction.addEventListener("click", (e) => {
     div_content.classList.remove("show");
   }
 });
+
+comoLlegar.addEventListener("click", async (e) => {
+  const startValue = ENTRADA_1;
+  const endValue = comoLlegar.getAttribute("nodo");
+  if(window.matchMedia("(max-width: 768px)").matches){
+    div_content_3.classList.remove("show");
+  }
+  await trazadoRuta(startValue,endValue);
+});
+
+
 
 
 //funcion para unir dos puntos 
