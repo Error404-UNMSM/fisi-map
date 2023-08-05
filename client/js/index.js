@@ -4,6 +4,7 @@ import dibujaRuta from "./draw.js";
 import { getPath, getPointInfo } from "./api.js";
 
 const nodoList = document.querySelectorAll(".nodo");
+const ENTRADA_1 = "nodo1-0";
 
 function newRuta(nodo1, nodo2) {
   return [nodo1, nodo2, nodos[nodo1].getDistancia(nodos[nodo2])];
@@ -190,21 +191,11 @@ const piso3 = document.querySelector("#capa_3");
 
 let camino, coordsCamino1, coordsCamino2, coordsCamino3;
 
-function trazadoRuta(nodo) {
-  coordsCamino1 = [];
-  coordsCamino2 = [];
-  coordsCamino3 = [];
-  camino = g.getCaminoMasCorto(nodo);
-  camino.forEach((nodo) => {
-    if (nodo.startsWith("nodo1")) {
-      coordsCamino1.push(nodos[nodo].toArr());
-    } else if (nodo.startsWith("nodo2")) {
-      coordsCamino2.push(nodos[nodo].toArr());
-    } else {
-      coordsCamino3.push(nodos[nodo].toArr());
-    }
-  });
-  dibujaRuta([coordsCamino1, coordsCamino2, coordsCamino3]);
+async function trazadoRuta(origen, destino) {
+  console.log(origen, destino);
+  const camino = await getPath(origen, destino);
+  console.log(camino);
+  dibujaRuta(camino);
 }
 
 //Ordenamos los puntos por piso
@@ -220,8 +211,10 @@ const point = document.querySelectorAll(".point");
 // }));
 // console.log(JSON.stringify(exported_points));
 
-const list = document.querySelector(".list");
-const pointListTodos = [];
+const list = document.querySelector(".list"); //Lista de puntos de la barra
+const select_box = document.querySelector("#select_box");
+const select_box_2 = document.querySelector("#select_box_2"); 
+
 const pointListPiso1 = [];
 const pointListPiso2 = [];
 const pointListPiso3 = [];
@@ -247,11 +240,16 @@ function addEventPoint(pointList) {
     document.getElementById(point).addEventListener("click", async (e) => {
       const element = e.target;
       let nodo = element.getAttribute("nodo");
-      trazadoRuta(nodo);
+      await trazadoRuta(ENTRADA_1,nodo);
       await mostrarInformacion(element);
-      infoBarra.style.visibility = "visible";
+      if(window.matchMedia("(max-width: 768px)").matches){
+
+      }else {
+        div_content_3.classList.add("show");
+      }
+      
       if (div_content.classList.contains("show")) {
-        div_content.classList.toggle("show");
+        div_content.classList.remove("show");
       }
     });
     if(piso1.style.display == "block" && piso2.style.display == "block" && piso3.style.display == "block"){
@@ -364,9 +362,8 @@ down.addEventListener("click", (e) => {
 all.addEventListener("click", (e) => {
   pisoList.forEach((piso) => {
     piso.style.display = "block";
-    infoBarra.style.visibility = "hidden";
+    div_content_3.classList.remove("show");
     piso.classList.add("colored");
-    piso.style.backgroundColor = "rgba(208, 208, 208, 100)";
     if (piso.id == "capa_1") {
       piso.style.transform = "translateZ(-100px)";
     } else if (piso.id == "capa_2") {
@@ -418,11 +415,12 @@ function ocultarPisos(piso) {
 }
 
 
+
 //funcion para crear la lista de puntos e insertarla
 
 function insertar(point) {
   const li = document.createElement("li");
-  var item = document.createElement("p");
+  var item = document.createElement("h6");
   var item_piso = document.createElement("p");
   var name = point.getAttribute("name");
   var id = point.getAttribute("id");
@@ -434,26 +432,49 @@ function insertar(point) {
   item.setAttribute("piso", piso);
   item.setAttribute("nodo", nodo);
   if(piso == "capa_1") {
-  item_piso.innerHTML = "Piso 1";
+  item_piso.innerHTML = "P1";
   } else if(piso == "capa_2") {
-    item_piso.innerHTML = "Piso 2";
+    item_piso.innerHTML = "P2";
   } else {
-    item_piso.innerHTML = "Piso 3";
+    item_piso.innerHTML = "P3";
   }
   li.appendChild(item);
   li.appendChild(item_piso);
   list.appendChild(li);
+
+  
+  //----------------------------
+  var value = point.getAttribute("nodo");
+  var item_2 = document.createElement("option");
+  var name_2 = point.getAttribute("name");
+  var piso_2 = point.parentNode.getAttribute("id");
+  if(piso_2 == "capa_1") {
+    name_2 = name_2 + " (P1)";
+    } else if(piso == "capa_2") {
+      name_2 = name_2 + " (P2)";
+    } else {
+      name_2 = name_2 + " (P3)";
+    }
+  item_2.value = value;
+  item_2.innerHTML = name_2;
+  select_box.appendChild(item_2);
+  select_box_2.appendChild(item_2.cloneNode(true));
+  
 }
 
+const div_button = document.querySelector("#div_button");
+const div_content = document.querySelector("#div_content");
+const div_content_2 = document.querySelector("#div_content_2");
+const div_content_3 = document.querySelector("#div_content_3");
+
 const listaPointBarra = document.querySelectorAll(".list-item");
-const infoBarra = document.querySelector("#information");
 
 function addEventList(listaPointBarra) {
   listaPointBarra.forEach((p) => {
     const nodo = p.getAttribute("nodo");
     const piso = p.getAttribute("piso");
-    p.addEventListener("click", (e) => {
-      trazadoRuta(nodo);
+    p.addEventListener("click", async (e) => {
+      await trazadoRuta(ENTRADA_1,nodo);
       if(piso == "capa_1") {
         ocultarPisos(piso1);
       } else if(piso == "capa_2") {
@@ -461,8 +482,15 @@ function addEventList(listaPointBarra) {
       } else {
         ocultarPisos(piso3);
       }
-      div_content.classList.toggle("show");
-      infoBarra.style.visibility = "visible";
+      //infoBarra.style.visibility = "visible";
+      if (div_content.classList.contains("show")) {
+        div_content.classList.remove("show");
+      }
+      if(window.matchMedia("(max-width: 768px)").matches){
+
+      }else {
+        div_content_3.classList.add("show");
+      }
       mostrarInformacion(p);
     });
   });
@@ -470,19 +498,23 @@ function addEventList(listaPointBarra) {
 
 addEventList(listaPointBarra);
 
-const div_button = document.querySelector("#div_button");
-const div_content = document.querySelector("#div_content");
+
 
 div_button.addEventListener("click", (e) => {
-  div_content.classList.toggle("show");
-  infoBarra.style.visibility = "hidden";
+  if (div_content_2.classList.contains("show")) {
+    div_content_2.classList.remove("show");
+  } else if(div_content_3.classList.contains("show")){
+    div_content_3.classList.remove("show");
+  }else{
+    div_content.classList.toggle("show");
+  }
 });
 
 var options = {
   valueNames: ["list-item"],
 }
 
-var userList = new List('test-list', options);
+var userList = new List('test_list', options);
 
 const content_item = document.querySelector(".content-item");
 const content_title = document.querySelector(".content-title");
@@ -501,10 +533,30 @@ async function mostrarInformacion(element) {
     content_image.alt = info.imageAlt;
   } else {
     content_description.innerHTML = '';
-    content_image.src = '';
+    content_image.src = 'https://dicesamexico.com.mx/wp-content/uploads/2021/06/no-image.jpeg';
     content_image.alt = '';
   }
 }
 
-console.log(await getPath("nodo1-28", "nodo2-28"));
-dibujaRuta(await getPath("nodo1-28", "nodo2-28"));
+const btn_direction = document.querySelector("#button_direction");
+const btn_direction_2 = document.querySelector("#button_direction_2");
+
+
+btn_direction.addEventListener("click", (e) => {
+  div_content_2.classList.toggle("show");
+  if (div_content.classList.contains("show")) {
+    div_content.classList.remove("show");
+  }
+});
+
+
+//funcion para unir dos puntos 
+btn_direction_2.addEventListener("click", async (e) => {
+  const startValue = select_box.value;
+  const endValue = select_box_2.value;
+  if(window.matchMedia("(max-width: 768px)").matches){
+    div_content_2.classList.toggle("show");
+  }
+  await trazadoRuta(startValue,endValue);
+});
+
