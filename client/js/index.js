@@ -192,9 +192,7 @@ const piso3 = document.querySelector("#capa_3");
 // let camino, coordsCamino1, coordsCamino2, coordsCamino3;
 
 async function trazadoRuta(origen, destino) {
-  console.log(origen, destino);
   const camino = await getPath(origen, destino);
-  console.log(camino);
   dibujaRuta(camino);
 }
 
@@ -563,7 +561,6 @@ btn_direction_2.addEventListener("click", async (e) => {
   const startValue = select_box.value;
   const endValue = select_box_2.value;
   const piso = endValue[4];
-  console.log(piso);
   if(window.matchMedia("(max-width: 768px)").matches){
     div_content_2.classList.toggle("show");
   }

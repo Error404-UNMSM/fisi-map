@@ -113,7 +113,7 @@
     "node_id": "nodo3-18",
     "name": "Aula de música"
   },
-  { "point_id": "publicidad", "node_id": "nodo3-23", "name": "Publicidad" },
+  { "point_id": "dept-publicidad", "node_id": "nodo3-23", "name": "Publicidad" },
   {
     "point_id": "dept-acad-sis",
     "node_id": "nodo3-27",
