@@ -6,8 +6,7 @@ Una solución práctica a un problema de la facultad
 </p>
 
 <p align="center">
-<img src="https://komarev.com/ghpvc/?username=Error404-UNMSM&label=Profile%20views&color=0e75b6&style=flat" alt="martinxanton" />
-<a href="https://github.com/antonkomarev/github-profile-views-counter/blob/master/LICENSE"><img src="https://img.shields.io/github/license/antonkomarev/github-profile-views-counter.svg?style=flat-square" alt="License"></a>
+<a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License"></a>
 </p>
 
 ## Características
